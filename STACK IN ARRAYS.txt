@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+int top=-1,arr[6];
+void display()
+{
+	if(top==-1)
+	{
+		cout<<"stack is empty";
+	}
+	else
+	{
+	for(int i=top;i>=0;i--)
+	{
+		cout<<arr[i]<<"\t";
+	}
+    }
+}
+void peek()
+{
+	cout<<"peek value"<<arr[top];
+}
+void pop()
+{
+	cout<<"pop element"<<arr[top]<<endl;
+	top--;
+}
+void push()
+{
+	int value;
+	cout<<"enter value";
+	cin>>value;
+	if(top==6-1)
+	{
+		cout<<"stact is full";
+	}
+	else
+	{
+		top++;
+		arr[top]=value;
+	}
+}
+void stack()
+{
+	int opt;
+	cout<<"1.push\n";
+	cout<<"2.pop\n";
+	cout<<"3.peek\n";
+	cout<<"0.exit\n";
+	do
+	{
+		cout<<"ENTER OPTION";
+		cin>>opt;
+		if(opt==1)
+		{
+	        push();
+	        if(top==6-1)
+            display();
+		}
+		else if(opt==2)
+		{
+			pop();
+			display();
+		}
+		else if(opt==3)
+		{
+			peek();
+		}
+	}
+	while(opt!=0);
+}
+int main()
+{
+	stack();
+	display();
+}
