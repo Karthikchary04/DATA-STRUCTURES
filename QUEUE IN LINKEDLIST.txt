@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+	int data;
+	node *next;
+};
+class queue
+{
+    node *top,*end;
+	public:
+	queue()
+	{
+		top=NULL;
+	}
+	void insertqueue(int value)
+	{
+		node *temp=new node;
+		temp->data=value;
+		temp->next=NULL;
+		if(top==NULL)
+		{
+          top=temp;
+          end=temp;
+          temp=NULL;
+        }
+        else
+        {
+        	end->next=temp;
+        	end=temp;
+		}
+	}
+	void deletequeue()
+	{
+		node *temp=new node;
+		temp=top;
+		top=top->next;
+		delete temp;
+	}	
+	void display()
+	{
+		node *temp=new node;
+		temp=top;
+		if(top==NULL)
+		{
+			cout<<"queue is empty";
+		}
+		else
+		{
+			while(temp!=NULL)
+			{
+				cout<<temp->data<<"\t";
+				temp=temp->next;
+			}
+		}
+	}
+};
+int main()
+{
+	queue q;
+	q.insertqueue(10);
+	q.insertqueue(20);
+	q.insertqueue(30);
+	q.deletequeue();
+	q.display();
+}
