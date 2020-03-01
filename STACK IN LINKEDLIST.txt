@@ -1,0 +1,86 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+	int data;
+	node *next;
+};
+class stack
+{
+	node *top;
+	public:
+		stack()
+		{
+			top=NULL;
+		}
+		void push(int value)
+		{
+			node *temp=new node;
+			temp->data=value;
+			temp->next=top;
+			top=temp;
+		}
+		void pop() 
+		{
+			node *temp=new node;
+			temp=top;
+			top=top->next;
+			cout<<temp->data;
+			delete temp;
+		}
+		void peek()
+		{
+			cout<<top->data;
+		}
+		void display()
+		{
+			node *temp=new node;
+			temp=top;
+			if(top==NULL)
+			{
+				cout<<"stack is empty";
+			}
+			else
+			{
+				while(temp!=NULL)
+				{
+					cout<<temp->data<<"\t";
+					temp=temp->next;
+				}
+			}
+		}
+};
+	void StackLinkedList()
+		{
+			stack s;
+			int opt;
+			cout<<"1.push\n";
+			cout<<"2.pop\n";
+			cout<<"3.peek\n";
+			do
+			{
+				cout<<"\nenter option";
+				cin>>opt;
+				if(opt==1)
+				{
+					int value;
+					cout<<"enter value";
+					cin>>value;
+					s.push(value);
+					s.display();
+				}
+				else if(opt==2)
+				{
+				s.pop();
+				}
+				else if(opt==3)
+				{
+				s.peek();
+				}
+			}
+			while(opt!=0);
+		}
+int main()
+{
+   StackLinkedList();
+}
