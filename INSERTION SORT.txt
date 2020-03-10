@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int arr[100],values[100],i,n,j,temp,min=0,loc,k;
+	cout<<"enter n value";
+	cin>>n;
+	cout<<"enter"<<n<<"values"<<endl;
+	for(i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	for(i=1;i<n;i++)
+	{
+		k=arr[i];
+		j=i-1;
+		cout<<"j="<<arr[j]<<"-"<<arr[j+1];
+		while(j>=0 && arr[j]>k)
+		{
+		//	cout<<arr[j]<<"-"<<arr[j+1]<<"\n ";
+			arr[j+1]=arr[j];
+			j--;
+		}
+		arr[j+1]=k;
+	}
+	for(i=0;i<n;i++)
+	{
+		cout<<arr[i]<<"\t";
+	}
+}

@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int arr[100],values[100],i,n,j,temp,min=0,loc;
+	cout<<"enter n value";
+	cin>>n;
+	cout<<"enter"<<n<<"values"<<endl;
+	for(i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	for(i=0;i<n;i++)
+	{
+       min=arr[i];  
+       loc=i;
+       for (j=i+1;j<n;j++)
+       {
+         if (min>arr[j])
+          {
+            min=arr[j];                  
+	    loc=j;
+          }
+       }
+       cout<<"min: "<<min<<endl;
+       if(min<arr[i])
+       {
+       	temp=arr[i];
+       	arr[i]=arr[loc];
+       	arr[loc]=temp;
+	   }
+       
+   }
+   for(i=0;i<n;i++)
+   {
+   	cout<<arr[i]<<"\t";
+   }
+}
